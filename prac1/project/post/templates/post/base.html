@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css %}
+
+    {% endblock css %}
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'post:home' %}">홈</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+                <p>{{ user.username }}님, 안녕하세요.</p>
+            </li>
+            <li>
+                <a href="{% url 'post:logout' %}">로그아웃</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'post:login' %}">로그인</a>
+            </li>
+            <li>
+                <a href="{% url 'post:signup' %}">회원가입</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="title">
+        {% block title %}
+
+        {% endblock title %}
+    </div>
+    <div class="content">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>
