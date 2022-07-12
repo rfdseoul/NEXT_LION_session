@@ -4,3 +4,19 @@ body {
     height: 700px;
     border: 2px solid black;
 }
+
+.title {
+    width: 400px;
+    text-align: center;
+    height: 70px;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+
+.content {
+    width: 400px;
+    text-align: center;
+    height: 500px;
+    border: 2px solid black;
+    margin: 10px auto;
+}
