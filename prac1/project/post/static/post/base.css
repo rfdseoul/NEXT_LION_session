@@ -1,9 +1,32 @@
+/* head 스타일 */
+
+#head {
+    width: 200px;
+    margin: auto;
+    height: 50px;
+    text-align: center;
+}
+
+/* 전체 body 스타일 */
+
 body {
     margin: 0 auto;
     width: 500px;
-    height: 700px;
     border: 2px solid black;
 }
+
+/* nav 내부 링크 스타일  */
+.linkList li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 제목 스타일  */
 
 .title {
     width: 400px;
@@ -12,6 +35,8 @@ body {
     border: 2px solid black;
     margin: 0 auto;
 }
+
+/* 내용 스타일 */
 
 .content {
     width: 400px;

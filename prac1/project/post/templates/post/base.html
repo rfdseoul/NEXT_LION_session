@@ -11,9 +11,14 @@
     {% endblock css %}
     <title>Document</title>
 </head>
+<head>
+    <div id="head">
+        <h1>PROJECT</h1>
+    </div>
+</head>
 <body>
     <nav>
-        <ul>
+        <ul class="linkList">
             <li>
                 <a href="{% url 'post:home' %}">홈</a>
             </li>
