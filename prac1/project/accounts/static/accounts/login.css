@@ -1,0 +1,36 @@
+.loginSignBox {
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+    margin: 30px auto;
+}
+
+/* 각 항목 별 위아래 간격 조정 */
+/* 이게 적용이 안되서...어쩔 수 없이 tr 늘리기... */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 100px;
+}
+
+.empty {
+    height: 30px;
+    width: 30px;
+}
+
+/* 항목 별 너비 및 높이 조정 */
+
+.loginList {
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+}
+
+/* 로그인 버튼 관련 스타일 */
+
+.loginButton {
+    width: 210px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+}

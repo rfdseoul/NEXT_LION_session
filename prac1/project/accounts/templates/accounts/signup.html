@@ -1,16 +1,35 @@
 {% extends 'post/base.html' %}
 
-{% block title %}
-<h2>회원가입하기</h2>
-{% endblock title %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/login.css' %}">
+{% endblock css %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %} {% if error %}
-    <p>{{ error }}</p>
-    {% endif %}
-    <input type="text" name="username" placeholder="아이디">
-    <input type="password" name="password" placeholder="비밀번호">
-    <button type="submit">회원가입하기</button>
-</form>
+<div class="loginSignBox">
+    <form method="post">
+        {% csrf_token %} {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+        <table>
+            <tr>
+                <input class="loginList" type="text" name="username" placeholder="아이디">
+            </tr>
+            <tr class="empty">
+                <p></p>
+            </tr>
+            <tr>
+                <input class="loginList" type="password" name="password" placeholder="비밀번호">
+            </tr>
+            </tr>
+            <tr class="empty">
+                <p></p>
+            </tr>
+            <tr>
+                <button class="loginButton" type="submit">JOIN</button>
+            </tr>
+        </table>
+    </form>
+</div>
 {% endblock content %}
+
