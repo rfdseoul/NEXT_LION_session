@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'post/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/base.css' %}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +11,13 @@
     {% endblock css %}
     <title>Document</title>
 </head>
+
 <head>
     <div id="head">
         <a href="{% url 'post:home' %}"><h1></h1></a>
     </div>
 </head>
+
 <body>
     <nav>
         <ul class="linkList">
@@ -49,7 +51,5 @@
 
         {% endblock content %}
     </div>
-    {% block js %}
-    {% endblock js %}
 </body>
 </html>

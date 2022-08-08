@@ -1,0 +1,50 @@
+{% extends 'post/base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'post/home.css' %}">
+{% endblock css %}
+
+{% block title %}
+<div class="titleBox">
+    <img src="https://cdn-icons-png.flaticon.com/128/29/29302.png">    
+    <h2>쌓인 책</h2>
+</div>
+
+{% endblock title %}
+
+{% block content %}
+<!-- 모달 감싸는 강조 박스 -->
+<div class="modal-container">
+    <!-- 모달 박스 -->
+    <div class="modal">
+        <div>
+            <!-- 모달 제목 -->
+        </div>
+        <div>
+            <!-- 모달 내용 -->
+        </div>
+        <button>
+            <!-- 닫기 버튼 -->
+        </button>
+        <button>
+            <!-- 하루동안 다시 보지 않기 버튼 -->
+        </button>
+    </div>
+</div>
+<button class="open-modal">모달 열기</button>
+<hr>
+    <div class="postList">
+        {% for post in posts %}
+        <ul>
+            <a href="{% url 'post:detail' post.pk %}">{{ post.title }}</a>
+        </ul>
+        {% endfor %}
+    </div>
+    <hr>
+    <a href="{% url 'post:new' %}">글 작성하기</a>    
+{% endblock content %}
+
+{% block js %}
+    <script type="module" src="/prac1/project/post/js/index.js"></script>
+{% endblock js %}

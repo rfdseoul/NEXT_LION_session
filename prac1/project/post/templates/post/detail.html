@@ -6,22 +6,22 @@
 {% endblock css %}
 
 {% block title %}
+<div class="titleBox">
+    <h2>{{ post.title }}</h2>
+</div>
+
 {% endblock title %}
 
 {% block content %}
+<hr>
 <div class="contentBox">
-    <div>
-        <h2>제목</h2>
-        <p>{{ post.title }}</p>
-    </div>
-    <div>
-        <h2>내용</h2>
         <p>{{ post.content }}</p>
-    </div>
 </div>
+<hr>
 <div class="linkBox">
     <a href="{% url 'post:home' %}">홈으로 가기</a>
     <a href="{% url 'post:edit' post.pk %}">수정하기</a>
     <a href="{% url 'post:delete' post.pk %}">삭제하기</a>
 </div>
 {% endblock content %}
+

@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     posts = Post.objects.all()
-    return render(request, 'post/home.html', {
+    return render(request, 'post/index.html', {
         'posts':posts,
     })
 
@@ -18,7 +18,7 @@ def new(request):
             title = request.POST['title'],
             content = request.POST['content'],
         )
-        return redirect('post:home')
+        return redirect('post:index')
     return render(request, 'post/new.html')
 
 def detail(request, post_pk):
@@ -45,5 +45,5 @@ def delete(request, post_pk):
     post = Post.objects.get(pk=post_pk)
     post.delete()
 
-    return redirect('post:home')
+    return redirect('post:index')
 

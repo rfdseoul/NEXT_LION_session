@@ -1,24 +1,27 @@
 {% extends 'post/base.html' %}
 
 {% block css %}
-
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'post/new.css' %}">
 {% endblock css %}
 
 {% block title %}
-<h2>글쓰기</h2>
 {% endblock title %}
 
 {% block content %}
+<div class="new">
     <form action="" method="post">
         {% csrf_token %}
-        <div>
+        <div class="titleBox">
             <label for="title">제목</label>
-            <input type="text" id="title" name="title">
+            <input type="text" id="title" name="title" autofocus>
         </div>
-        <div>
+        <div class="contentBox">
             <label for="content">내용</label>
-            <textarea name="content" id="content" cols="40" rows="10"></textarea>
+            <textarea name="content" id="content" cols="36" rows="7"></textarea>
         </div>
-        <button type="submit">작성하기</button>
+        <hr>
+        <button class="button" type="submit">작성하기</button>
     </form>
+</div>
 {% endblock content %}

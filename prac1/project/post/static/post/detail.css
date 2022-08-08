@@ -1,12 +1,18 @@
-.contentBox {
-    border: 1px solid red;
-    width: 350px;
-    height: 300px;
-    margin: 0 auto;
+.titleBox {
+    width: 400px;
+    height: 70px;
+    padding-top: 20px;
 }
 
+.contentBox {
+    width: 350px;
+    height: 430px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
 .linkBox {
-    border: 1px solid red;
     width: 350px;
     height: 50px;
     margin: 10px auto;
