@@ -1,38 +1,67 @@
-{% extends 'post/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'post/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'post/home.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block css %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'post/home.css' %}">
-{% endblock css %}
-
-{% block title %}
+    <title>Document</title>
+</head>
+<head>
+    <div id="head">
+        <a href="{% url 'post:home' %}"><h1></h1></a>
+    </div>
+</head>
+<body>
+    <nav>
+        <ul class="linkList">
+            <li>
+                <a href="{% url 'post:home' %}">홈</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+                <p>{{ user.username }}님, 안녕하세요.</p>
+            </li>
+            <li>
+                <a href="{% url 'accounts:logout' %}">로그아웃</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'accounts:login' %}">로그인</a>
+            </li>
+            <li>
+                <a href="{% url 'accounts:signup' %}">회원가입</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="title">
 <div class="titleBox">
     <img src="https://cdn-icons-png.flaticon.com/128/29/29302.png">    
     <h2>쌓인 책</h2>
 </div>
-
-{% endblock title %}
-
-{% block content %}
+    </div>
+    <div class="content">
 <!-- 모달 감싸는 강조 박스 -->
 <div class="modal-container">
     <!-- 모달 박스 -->
     <div class="modal">
-        <div>
-            <!-- 모달 제목 -->
+        <div class="modal-content">
+            <img class="modal-img" src="https://cdn.epnc.co.kr/news/photo/202012/110210_104069_752.png">
         </div>
-        <div>
-            <!-- 모달 내용 -->
-        </div>
-        <button>
-            <!-- 닫기 버튼 -->
+        <div class="modal-btnBox">
+        <button class="modal-close">
+            닫기
         </button>
-        <button>
-            <!-- 하루동안 다시 보지 않기 버튼 -->
+        <button class="modal-stop-button">
+            오늘 하루 보지 않기
         </button>
+    </div>    
     </div>
 </div>
-<button class="open-modal">모달 열기</button>
 <hr>
     <div class="postList">
         {% for post in posts %}
@@ -43,8 +72,77 @@
     </div>
     <hr>
     <a href="{% url 'post:new' %}">글 작성하기</a>    
-{% endblock content %}
+    </div>
 
-{% block js %}
-    <script type="module" src="/prac1/project/post/js/index.js"></script>
-{% endblock js %}
+    
+    <script>
+const $ = (selector) => document.querySelector(selector);
+const body = $("body");
+const modal = $(".modal-container");
+
+
+const openModal = () => {
+    modal.classList.add("open");
+    body.style.overflow = "hidden";
+  }
+
+const closeModal = () => {
+    modal.classList.remove("open");
+    body.style.overflow = "auto";
+  }
+
+const setCookie = (name, value, expireDays) => {
+  let date = new Date();
+  date.setDate(date.getDate()+expireDays);
+  document.cookie = `${name}=${value};expires=${date.toUTCString()}`;
+};
+
+
+const getCookie = (name) => {
+  let cookie = document.cookie;
+  if (document.cookie) {
+    let cookieArray = cookie.split("; ");
+    console.log(cookieArray);
+    for(let index in cookieArray) {
+      let cookieName = cookieArray[index].split("=");
+      if(cookieName[0] === name) {
+        return cookieNmae[1];
+      }
+    }
+  }
+  return;
+};
+
+function App() {
+    this.init = () => {
+    if(getCookie('closeCookie') === true) {
+      closeModal();
+      return;
+    }
+      openModal();
+    };
+
+    $(".modal-stop-button").addEventListener("click", () => {
+        setCookie("closeCookie", "true", "1");
+        closeModal();
+       });
+
+    $(".modal-close").addEventListener("click", () => {
+        closeModal();
+      });
+    
+    $(".modal-container").addEventListener("click", (event) => {
+        if(event.target === $(".modal-container")) {
+          closeModal();
+        }
+      });
+  }
+
+const app = new App();
+
+app.init();
+    </script>
+
+    
+</body>
+</html>

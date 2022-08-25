@@ -24,33 +24,47 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #c0c0c0;
     backdrop-filter: blur(4px);
-    transition: opacity 0.25s ease;
+    transition: all 0.3s ease-in;
     visibility: hidden;
 }
 
 .modal-container.open {
     visibility: visible;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal {
-    position: relative;
-    transition: top 0.25s ease;
-    width: 500px;
-    height: fit-content;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
-    margin: auto;
-    padding: 15px;
-    overflow: auto;
-    background: #fff;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
+    background-color: white;
+    width: 400px;
+    height: 337px;
+    margin: 150px auto;
+
   }
 
+.modal-img {
+    width: 400px;
+    height: 317px;
+}
+
+/* .modal-title {
+    width: 290px;
+    height: 100px;
+    margin: 0 auto;
+    border: 1px solid grey;
+} */
+
+.modal-content {
+    width: 400px;
+    height: 317px;
+    margin: 0 auto;
+}
+
+.modal-btnBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 /* 읽은 책 리스트 관련 스타일 */
 
